@@ -664,6 +664,7 @@ var BioCircos;
           "LinkRadius": 108,
           "LinkFillColor": "red",
           "LinkWidth": 3,
+          "LinkOpacity": 1,
           "displayLinkAxis": true,
           "LinkAxisColor": "#B8B8B8",
           "LinkAxisWidth": 0.5,
@@ -870,6 +871,7 @@ var BioCircos;
           "LinkRadius": 108,
           "LinkFillColor": "red",
           "LinkWidth": 3,
+          "LinkOpacity": 1,
           "displayLinkAxis": true,
           "LinkAxisColor": "#B8B8B8",
           "LinkAxisWidth": 0.5,
@@ -2836,6 +2838,7 @@ var BioCircos;
                   link_label1: v.g1name,
                   link_label2: v.g2name,
                   link_pair: v.fusion,
+                  link_color: v.color,
                   link_width: self.LINKsettings.LinkWidth,
                   link_X1: (0 + Math.sin((v.g1start/2+v.g1end/2) * start_k + d[self.initGenome[v.g1chr]].startAngle) * (self.LINKsettings.LinkRadius)),
                   link_Y1: (0 - Math.cos((v.g1start/2+v.g1end/2) * start_k + d[self.initGenome[v.g1chr]].startAngle) * (self.LINKsettings.LinkRadius)),
@@ -2872,8 +2875,9 @@ var BioCircos;
                 .attr("d", function(d) { return "M"+d.link_X1+","+d.link_Y1+" Q0,0 "+d.link_X2+","+d.link_Y2+""; })
                 .attr("class", "BioCircosLINK")
                 .attr("fill","none")
-                .attr("stroke",self.LINKsettings.LinkFillColor)
-                .attr("stroke-width",self.LINKsettings.LinkWidth);
+                .attr("stroke",function(d,i) { if(d.link_color!=undefined){return d.link_color;}else{return self.LINKsettings.LinkFillColor;} })
+                .attr("stroke-width",self.LINKsettings.LinkWidth)
+                .attr("opacity",self.LINKsettings.LinkOpacity);
 
             if(self.LINKsettings.displayLinkLabel==true){
             svg.append("g")

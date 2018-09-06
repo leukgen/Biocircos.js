@@ -2145,6 +2145,7 @@ var BioCircos;
                   scatter_end: v.end,
                   scatter_name: v.name,
                   scatter_des: v.des,
+                  scatter_color: v.color,
                   scatter_link: v.link,
                   scatter_click_label: "scatter"+scatteri+"_"+i,
                   x: (0 + Math.sin((v.start/2+v.end/2) * scatter_k + d[self.initGenome[v.chr]].startAngle) * (self.SCATTERsettings.SCATTERRadius - random_data)),
@@ -2167,7 +2168,7 @@ var BioCircos;
                     .attr("xlink:href", function(d){return d.scatter_link})
                     .append("circle")
                     .attr("id", "BioCircosSCATTEROut")
-                    .attr("fill", self.SCATTERsettings.outerCircleColor)
+                    .attr("fill",function(d,i) { if(d.scatter_color!=undefined){return d.scatter_color;}else{return self.SCATTERsettings.outerCircleColor;} })
                     .attr("opacity", self.SCATTERsettings.outerCircleOpacity)
                     .attr("r", self.SCATTERsettings.outerCircleSize)
                     .attr("cx", function(d) { return d.x; })
@@ -2183,7 +2184,7 @@ var BioCircos;
                     .attr("xlink:href", function(d){return d.scatter_link})
                     .append("circle")
                     .attr("id", "BioCircosSCATTEROut")
-                    .attr("fill", self.SCATTERsettings.outerCircleColor)
+                    .attr("fill", function(d,i) { if(d.scatter_color!=undefined){return d.scatter_color;}else{return self.SCATTERsettings.outerCircleColor;} })
                     .attr("opacity", self.SCATTERsettings.outerCircleOpacity)
                     .attr("r", self.SCATTERsettings.outerCircleSize)
             .attr("cx",function(d){
@@ -2291,7 +2292,7 @@ var BioCircos;
                     .attr("id", "BioCircosSCATTEROut")
                     .attr("x", function(d) { return d.x - self.SCATTERsettings.outerrectWidth/2; })
                     .attr("y", function(d) { return d.y - self.SCATTERsettings.outerrectHeight/2; })
-                    .attr("fill", self.SCATTERsettings.outerCircleColor)
+                    .attr("fill", function(d,i) { if(d.scatter_color!=undefined){return d.scatter_color;}else{return self.SCATTERsettings.outerCircleColor;} })
                     .attr("width", self.SCATTERsettings.outerrectWidth)
                     .attr("height", self.SCATTERsettings.outerrectHeight)
                     .attr("opacity", 0.5);
@@ -2308,7 +2309,7 @@ var BioCircos;
                     .attr("xlink:href", function(d){return d.scatter_link})
                     .append("circle")
                     .attr("id", "BioCircosSCATTEROut")  //out
-                    .attr("fill", self.SCATTERsettings.innerCircleColor)
+                    .attr("fill", function(d,i) { if(d.scatter_color!=undefined){return d.scatter_color;}else{return self.SCATTERsettings.innerCircleColor;} })
                     .attr("r", self.SCATTERsettings.innerCircleSize)
                     .attr("cx", function(d) { return d.x; })
                     .attr("cy", function(d) { return d.y; });
@@ -2323,7 +2324,7 @@ var BioCircos;
                     .attr("xlink:href", function(d){return d.scatter_link})
                     .append("circle")
                     .attr("id", "BioCircosSCATTEROut")  //out
-                    .attr("fill", self.SCATTERsettings.innerCircleColor)
+                    .attr("fill", function(d,i) { if(d.scatter_color!=undefined){return d.scatter_color;}else{return self.SCATTERsettings.innerCircleColor;} })
                     .attr("r", self.SCATTERsettings.innerCircleSize)
             .attr("cx",function(d){
                 return 0;
@@ -2431,7 +2432,7 @@ var BioCircos;
                     .attr("y", function(d) { return d.y - self.SCATTERsettings.innerrectHeight/2; })
                     .attr("width", self.SCATTERsettings.innerrectWidth)
                     .attr("height", self.SCATTERsettings.innerrectHeight)
-                    .attr("fill", self.SCATTERsettings.innerCircleColor);
+                    .attr("fill", function(d,i) { if(d.scatter_color!=undefined){return d.scatter_color;}else{return self.SCATTERsettings.innerCircleColor;} });
             }
 
             self.init_SCATTERsettings();

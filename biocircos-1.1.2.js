@@ -672,7 +672,11 @@ var BioCircos;
           "displayLinkLabel": true,
           "LinkLabelColor": "red",
           "LinkLabelSize": 13,
-          "LinkLabelPad": 8
+          "LinkLabelPad": 8,
+          "LinkAnimationDisplay": false,
+          "LinkAnimationTime": 2000,
+          "LinkAnimationDelay": 20,
+          "LinkAnimationType": "linear",  //linear,circle,elastic,bounce
       };
 
       self.HISTOGRAMsettings = {
@@ -879,7 +883,11 @@ var BioCircos;
           "displayLinkLabel": true,
           "LinkLabelColor": "red",
           "LinkLabelSize": 13,
-          "LinkLabelPad": 8
+          "LinkLabelPad": 8,
+          "LinkAnimationDisplay": false,
+          "LinkAnimationTime": 2000,
+          "LinkAnimationDelay": 20,
+          "LinkAnimationType": "linear",  //linear,circle,elastic,bounce
     };
   }
 
@@ -2868,17 +2876,39 @@ var BioCircos;
                     .attr("r", function(d) { return self.LINKsettings.LinkRadius+self.LINKsettings.LinkAxisPad; });
             }
 
-            var Link_svg = svg.append("g")
-                .attr("class", "BioCircosLINK")
-              .selectAll("path")
-                .data(link_objects)
-                .enter().append("path")
-                .attr("d", function(d) { return "M"+d.link_X1+","+d.link_Y1+" Q0,0 "+d.link_X2+","+d.link_Y2+""; })
-                .attr("class", "BioCircosLINK")
-                .attr("fill","none")
-                .attr("stroke",function(d,i) { if(d.link_color!=undefined){return d.link_color;}else{return self.LINKsettings.LinkFillColor;} })
-                .attr("stroke-width",self.LINKsettings.LinkWidth)
-                .attr("opacity",self.LINKsettings.LinkOpacity);
+            if(self.LINKsettings.LinkAnimationDisplay==false){
+                var Link_svg = svg.append("g")
+                    .attr("class", "BioCircosLINK")
+                  .selectAll("path")
+                    .data(link_objects)
+                    .enter().append("path")
+                    .attr("d", function(d) { return "M"+d.link_X1+","+d.link_Y1+" Q0,0 "+d.link_X2+","+d.link_Y2+""; })
+                    .attr("class", "BioCircosLINK")
+                    .attr("fill","none")
+                    .attr("stroke",function(d,i) { if(d.link_color!=undefined){return d.link_color;}else{return self.LINKsettings.LinkFillColor;} })
+                    .attr("stroke-width",self.LINKsettings.LinkWidth)
+                    .attr("opacity",self.LINKsettings.LinkOpacity);
+            }
+            if(self.LINKsettings.LinkAnimationDisplay==true){
+                var Link_svg = svg.append("g")
+                    .attr("class", "BioCircosLINK")
+                  .selectAll("path")
+                    .data(link_objects)
+                    .enter().append("path")
+                    .attr("d", function(d) { return "M"+d.link_X1+","+d.link_Y1+" Q0,0 "+d.link_X2+","+d.link_Y2+""; })
+                    .attr("class", "BioCircosLINK")
+                    .attr("fill","none")
+                    .attr("stroke",function(d,i) { if(d.link_color!=undefined){return d.link_color;}else{return self.LINKsettings.LinkFillColor;} })
+                    .attr("stroke-width",self.LINKsettings.LinkWidth)
+                    .attr("opacity",0)
+                    .transition()
+                .delay(function(d,i){
+                    return i * self.LINKsettings.LinkAnimationDelay;
+                })
+                .duration(self.LINKsettings.LinkAnimationTime)
+                .ease(self.LINKsettings.LinkAnimationType)
+                        .attr("opacity",self.LINKsettings.LinkOpacity);
+            }
 
             if(self.LINKsettings.displayLinkLabel==true){
             svg.append("g")

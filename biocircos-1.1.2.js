@@ -1395,6 +1395,7 @@ var BioCircos;
                               .style("padding", self.settings.ARCMouseOverTooltipsPadding)
                               .style("border-radius", self.settings.ARCMouseOverTooltipsBorderRadius)
                               .style("opacity", self.settings.ARCMouseOverTooltipsOpacity)
+                              .style("pointer-events", "auto")
                            d3.select(this)
                               .style("fill",  function(d,i) { if(self.settings.ARCMouseOverColor=="none"){return "";}else{return self.settings.ARCMouseOverColor;} })
                               .style("opacity",  function(d,i) { if(self.settings.ARCMouseOverArcOpacity=="none"){return "";}else{return self.settings.ARCMouseOverArcOpacity;} })
@@ -1444,7 +1445,8 @@ var BioCircos;
 
             if(self.settings.ARCMouseLeaveDisplay==true){
                   ARCMouseOn.on("mouseleave",function(d){
-                      ARCMouseOnTooltip.style("opacity",0.0);
+                      ARCMouseOnTooltip.style("opacity",0.0)
+                      .style("pointer-events", "none");
                       d3.select(this)
                           .style("fill",  function(d,i) { if(self.settings.ARCMouseLeaveColor=="none"){return "";}else{return self.settings.ARCMouseLeaveColor;} })
                           .style("opacity",  function(d,i) { if(self.settings.ARCMouseLeaveArcOpacity=="none"){return "";}else{return self.settings.ARCMouseLeaveArcOpacity;} })
@@ -1477,7 +1479,8 @@ var BioCircos;
 
             if(self.settings.ARCMouseOutDisplay==true){
                    ARCMouseOn.on("mouseout",function(d){
-                       ARCMouseOnTooltip.style("opacity",0.0);
+                       ARCMouseOnTooltip.style("opacity",0.0)
+                       .style("pointer-events", "none");
                        d3.select(this)
                            .transition()
                            .duration(self.settings.ARCMouseOutAnimationTime)
@@ -1548,6 +1551,7 @@ var BioCircos;
                        .style("padding", self.settings.HISTOGRAMMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.HISTOGRAMMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.HISTOGRAMMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("fill",  function(d,i) { if(self.settings.HISTOGRAMMouseOverColor=="none"){return "";}else{return self.settings.HISTOGRAMMouseOverColor;} })
                        .style("opacity",  function(d,i) { if(self.settings.HISTOGRAMMouseOverOpacity=="none"){return "";}else{return self.settings.HISTOGRAMMouseOverOpacity;} })
@@ -1584,7 +1588,8 @@ var BioCircos;
             }
             if(self.settings.HISTOGRAMMouseLeaveDisplay==true){
                HISTOGRAMMouseOn.on("mouseleave",function(d){
-                   HISTOGRAMMouseOnTooltip.style("opacity",0.0);
+                   HISTOGRAMMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("fill",  function(d,i) { if(self.settings.HISTOGRAMMouseLeaveColor=="none"){return "";}else{return self.settings.HISTOGRAMMouseLeaveColor;} })
                        .style("opacity",  function(d,i) { if(self.settings.HISTOGRAMMouseLeaveOpacity=="none"){return "";}else{return self.settings.HISTOGRAMMouseLeaveOpacity;} })
@@ -1614,7 +1619,8 @@ var BioCircos;
             }
             if(self.settings.HISTOGRAMMouseOutDisplay==true){
                HISTOGRAMMouseOn.on("mouseout",function(d){
-                   HISTOGRAMMouseOnTooltip.style("opacity",0.0);
+                   HISTOGRAMMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.HISTOGRAMMouseOutAnimationTime)
@@ -1693,6 +1699,7 @@ var BioCircos;
                        .style("padding", self.settings.LINEMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.LINEMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.LINEMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("opacity",  function(d,i) { if(self.settings.LINEMouseOverLineOpacity=="none"){return "";}else{return self.settings.LINEMouseOverLineOpacity;} })
                        .style("stroke", function(d,i) { if(self.settings.LINEMouseOverLineStrokeColor=="none"){return "";}else{return self.settings.LINEMouseOverLineStrokeColor;} })
@@ -1725,7 +1732,8 @@ var BioCircos;
             }
             if(self.settings.LINEMouseLeaveDisplay==true){
                LINEMouseOn.on("mouseleave",function(d){
-                   LINEMouseOnTooltip.style("opacity",0.0);
+                   LINEMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("opacity",  function(d,i) { if(self.settings.LINEMouseLeaveLineOpacity=="none"){return "";}else{return self.settings.LINEMouseLeaveLineOpacity;} })
                        .style("stroke", function(d,i) { if(self.settings.LINEMouseLeaveLineStrokeColor=="none"){return "";}else{return self.settings.LINEMouseLeaveLineStrokeColor;} })
@@ -1752,7 +1760,8 @@ var BioCircos;
             }
             if(self.settings.LINEMouseOutDisplay==true){
                LINEMouseOn.on("mouseout",function(d){
-                   LINEMouseOnTooltip.style("opacity",0.0);
+                   LINEMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.LINEMouseOutAnimationTime)
@@ -1910,6 +1919,7 @@ var BioCircos;
                        .style("padding", self.settings.CNVMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.CNVMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.CNVMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("fill",  function(d,i) { if(self.settings.CNVMouseOverColor=="none"){return "";}else{return self.settings.CNVMouseOverColor;} })
                        .style("opacity",  function(d,i) { if(self.settings.CNVMouseOverArcOpacity=="none"){return "";}else{return self.settings.CNVMouseOverArcOpacity;} })
@@ -1957,7 +1967,8 @@ var BioCircos;
             }
             if(self.settings.CNVMouseLeaveDisplay==true){
                CNVMouseOn.on("mouseleave",function(d){
-                   CNVMouseOnTooltip.style("opacity",0.0);
+                   CNVMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("fill",  function(d,i) { if(self.settings.CNVMouseLeaveColor=="none"){return "";}else{return self.settings.CNVMouseLeaveColor;} })
                        .style("opacity",  function(d,i) { if(self.settings.CNVMouseLeaveCircleOpacity=="none"){return "";}else{return self.settings.CNVMouseLeaveCircleOpacity;} })
@@ -1987,7 +1998,8 @@ var BioCircos;
             }
             if(self.settings.CNVMouseOutDisplay==true){
                CNVMouseOn.on("mouseout",function(d){
-                   CNVMouseOnTooltip.style("opacity",0.0);
+                   CNVMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.CNVMouseOutAnimationTime)
@@ -2060,6 +2072,7 @@ var BioCircos;
                        .style("padding", self.settings.HEATMAPMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.HEATMAPMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.HEATMAPMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("fill",  function(d,i) { if(self.settings.HEATMAPMouseOverColor=="none"){return "";}else{return self.settings.HEATMAPMouseOverColor;} })
                        .style("opacity",  function(d,i) { if(self.settings.HEATMAPMouseOverOpacity=="none"){return "";}else{return self.settings.HEATMAPMouseOverOpacity;} })
@@ -2096,7 +2109,8 @@ var BioCircos;
             }
             if(self.settings.HEATMAPMouseLeaveDisplay==true){
                HEATMAPMouseOn.on("mouseleave",function(d){
-                   HEATMAPMouseOnTooltip.style("opacity",0.0);
+                   HEATMAPMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("fill",  function(d,i) { if(self.settings.HEATMAPMouseLeaveColor=="none"){return "";}else{return self.settings.HEATMAPMouseLeaveColor;} })
                        .style("opacity",  function(d,i) { if(self.settings.HEATMAPMouseLeaveOpacity=="none"){return "";}else{return self.settings.HEATMAPMouseLeaveOpacity;} })
@@ -2126,7 +2140,8 @@ var BioCircos;
             }
             if(self.settings.HEATMAPMouseOutDisplay==true){
                HEATMAPMouseOn.on("mouseout",function(d){
-                   HEATMAPMouseOnTooltip.style("opacity",0.0);
+                   HEATMAPMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.HEATMAPMouseOutAnimationTime)
@@ -2468,6 +2483,7 @@ var BioCircos;
                        .style("padding", self.settings.SCATTERMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.SCATTERMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.SCATTERMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("r",  function(d,i) { if(self.settings.SCATTERMouseOverCircleSize=="none"){return "";}else{return self.settings.SCATTERMouseOverCircleSize;} })
                        .style("fill",  function(d,i) { if(self.settings.SCATTERMouseOverColor=="none"){return "";}else{return self.settings.SCATTERMouseOverColor;} })
@@ -2517,7 +2533,8 @@ var BioCircos;
             }
             if(self.settings.SCATTERMouseLeaveDisplay==true){
                SCATTERMouseOn.on("mouseleave",function(d){
-                   SCATTERMouseOnTooltip.style("opacity",0.0);
+                   SCATTERMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("r", function(d,i) { if(self.settings.SCATTERMouseLeaveCircleSize=="none"){return "";}else{return self.settings.SCATTERMouseLeaveCircleSize;} })
                        .style("fill", function(d,i) { if(self.settings.SCATTERMouseLeaveColor=="none"){return "";}else{return self.settings.SCATTERMouseLeaveColor;} })
@@ -2550,7 +2567,8 @@ var BioCircos;
             }
             if(self.settings.SCATTERMouseOutDisplay==true){
                SCATTERMouseOn.on("mouseout",function(d){
-                   SCATTERMouseOnTooltip.style("opacity",0.0);
+                   SCATTERMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.SCATTERMouseOutAnimationTime)
@@ -2738,6 +2756,7 @@ var BioCircos;
                        .style("padding", self.settings.SNPMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.SNPMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.SNPMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("r",  function(d,i) { if(self.settings.SNPMouseOverCircleSize=="none"){return "";}else{return self.settings.SNPMouseOverCircleSize;} })
                        .style("fill",  function(d,i) { if(self.settings.SNPMouseOverColor=="none"){return "";}else{return self.settings.SNPMouseOverColor;} })
@@ -2789,7 +2808,8 @@ var BioCircos;
             }
             if(self.settings.SNPMouseLeaveDisplay==true){
                SNPMouseOn.on("mouseleave",function(d){
-                   SNPMouseOnTooltip.style("opacity",0.0);
+                   SNPMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("r", function(d,i) { if(self.settings.SNPMouseLeaveCircleSize=="none"){return "";}else{return self.settings.SNPMouseLeaveCircleSize;} })
                        .style("fill", function(d,i) { if(self.settings.SNPMouseLeaveColor=="none"){return "";}else{return self.settings.SNPMouseLeaveColor;} })
@@ -2822,7 +2842,8 @@ var BioCircos;
             }
             if(self.settings.SNPMouseOutDisplay==true){
                SNPMouseOn.on("mouseout",function(d){
-                   SNPMouseOnTooltip.style("opacity",0.0);
+                   SNPMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.SNPMouseOutAnimationTime)
@@ -2966,6 +2987,7 @@ var BioCircos;
                        .style("padding", self.settings.LINKMouseOverTooltipsPadding)
                        .style("border-radius", self.settings.LINKMouseOverTooltipsBorderRadius)
                        .style("opacity", self.settings.LINKMouseOverTooltipsOpacity)
+                       .style("pointer-events", "auto")
                     d3.select(this)
                        .style("opacity", function(d,i) { if(self.settings.LINKMouseOverOpacity=="none"){return "";}else{return self.settings.LINKMouseOverOpacity;} })
                        .style("stroke", function(d,i) { if(self.settings.LINKMouseOverStrokeColor=="none"){return "";}else{return self.settings.LINKMouseOverStrokeColor;} })
@@ -2998,7 +3020,8 @@ var BioCircos;
             }
             if(self.settings.LINKMouseLeaveDisplay==true){
                LINKMouseOn.on("mouseleave",function(d){
-                   LINKMouseOnTooltip.style("opacity",0.0);
+                   LINKMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .style("opacity", function(d,i) { if(self.settings.LINKMouseLeaveOpacity=="none"){return "";}else{return self.settings.LINKMouseLeaveOpacity;} })
                        .style("stroke", function(d,i) { if(self.settings.LINKMouseLeaveStrokeColor=="none"){return "";}else{return self.settings.LINKMouseLeaveStrokeColor;} })
@@ -3025,7 +3048,8 @@ var BioCircos;
             }
             if(self.settings.LINKMouseOutDisplay==true){
                LINKMouseOn.on("mouseout",function(d){
-                   LINKMouseOnTooltip.style("opacity",0.0);
+                   LINKMouseOnTooltip.style("opacity",0.0)
+                   .style("pointer-events", "none");
                    d3.select(this)
                        .transition()
                        .duration(self.settings.LINKMouseOutAnimationTime)
